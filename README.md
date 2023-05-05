@@ -22,11 +22,10 @@ To use this application, you can either visit the live demo or clone this reposi
 <h1> Local Installation</h1>
 
 <p>Clone the repository:</p>
-<li>git clone https://github.com/username/repo.git </li>
+<li>git clone https://github.com/ngermanishvili/ai-summarizer</li>
 <li>cd repo </li>
 <li> npm install</li>
-<p>Create a .env file at the root of the project with the following content</p>
-<li>VITE_RAPID_API_ARTICLE_KEY=your_rapid_api_key_here</li>
+<li>Create a .env file at the root of the project with the following content <br /> VITE_RAPID_API_ARTICLE_KEY=your_rapid_api_key_here</li>
 <li>npm run dev </li>
 
 <h1>What I Learned</h1>
