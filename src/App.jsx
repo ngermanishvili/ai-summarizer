@@ -1,14 +1,19 @@
-import Hero from './components/Hero'
-import Demo from './components/Demo'
-
+import Hero from "./components/Hero";
+import Demo from "./components/Demo";
 
 const App = () => {
   return (
-    <div>
-        <h1>React 18 Alpha</h1>
-        <p>React 18 Alpha is here!</p>
-    </div>
-  )
-}
+    <main>
+      <div className="main">
+        <div className="gradient" />
+      </div>
 
-export default App
+      <div className="relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6">
+        <Hero />
+        <Demo />
+      </div>
+    </main>
+  );
+};
+
+export default App;
