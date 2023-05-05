@@ -3,23 +3,16 @@ import { copy, linkIcon, loader, tick } from "../assets";
 import { useLazyGetSummaryQuery } from "../services/article";
 
 const Demo = () => {
-  const [article, setArticle] = useState({
-    url: "",
-    summary: "",
-  });
-
+  const [article, setArticle] = useState({ url: "", summary: "" });
   const [allArticles, setAllArticles] = useState([]);
-
+  const [copied, setCopied] = useState("");
   const [getSummary, { error, isFetching }] = useLazyGetSummaryQuery();
 
   useEffect(() => {
     const articlesFromLocalStorage = JSON.parse(
       localStorage.getItem("articles")
     );
-
-    if (articlesFromLocalStorage) {
-      setAllArticles(articlesFromLocalStorage);
-    }
+    if (articlesFromLocalStorage) setAllArticles(articlesFromLocalStorage);
   }, []);
 
   const handleSubmit = async (e) => {
@@ -28,16 +21,20 @@ const Demo = () => {
     if (data?.summary) {
       const newArticle = { ...article, summary: data.summary };
       const updatedAllArticles = [newArticle, ...allArticles];
-
       setArticle(newArticle);
       setAllArticles(updatedAllArticles);
-      localStorag;
-
       localStorage.setItem("articles", JSON.stringify(updatedAllArticles));
     }
+  };
 
-    const handeCopy = 
-    
+  const handleCopy = (copyurl) => {
+    setCopied(copyurl);
+    navigator.clipboard.writeText(copyurl);
+    setTimeout(() => setCopied(false), 3000);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.keyCode === 13) handleSubmit(e);
   };
 
   return (
@@ -52,12 +49,12 @@ const Demo = () => {
             alt="link-icon"
             className="absolute left-0 my-2 ml-3 w-5"
           />
-
           <input
             type="url"
             placeholder="Paste the article link"
             value={article.url}
             onChange={(e) => setArticle({ ...article, url: e.target.value })}
+            onKeyDown={handleKeyDown}
             required
             className="block w-full rounded-md border:border-gray-200 bg-white py-2.5 pl-10 pr-12 text-sm shadow-lg font-satoshi font-medium focus:border-black focus:outline-none focus:ring-0 peer"
           />
@@ -68,6 +65,7 @@ const Demo = () => {
             <p>↵</p>
           </button>
         </form>
+
         {/* browser url history  */}
         <div className="flex flex-col gap-1 max-h-60 overflow-y-auto">
           {allArticles.reverse().map((item, index) => (
@@ -76,10 +74,13 @@ const Demo = () => {
               onClick={() => setArticle(item)}
               className="p-3 flex justify-start items-center flex-row bg-white border border-gray-200 gap-3 rounded-lg cursor-pointer"
             >
-              <div className="w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199, 199, 199, 0.2)] backdrop-blur flex justify-center items-center cursor-pointer">
+              <div
+                className="w-7 h-7 rounded-full bg-white/10 shadow-[inset_10px_-50px_94px_0_rgb(199, 199, 199, 0.2)] backdrop-blur flex justify-center items-center cursor-pointer"
+                onClick={() => handleCopy(item.url)}
+              >
                 <img
-                  src={copy}
-                  alt="copy-icon"
+                  src={copied === item.url ? tick : copy}
+                  alt={copied === item.url ? "tick_icon" : "copy_icon"}
                   className="w-[40%] h-[40%] object-contain"
                 />
               </div>
