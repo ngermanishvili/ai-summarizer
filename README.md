@@ -16,13 +16,12 @@ Users can copy the article link to the clipboard.
 Usage
 To use this application, you can either visit the live demo or clone this repository and run the app locally.
 
-<h1> Live Demo https://ai-summarize1337.netlify.app/</h1>
- <h3>You can visit the live demo here.</h3>
+<h1> Live Demo</h1>
+https://ai-summarize1337.netlify.app/
 
 <h1> Local Installation</h1>
-
 <p>Clone the repository:</p>
-<li>git clone https://github.com/ngermanishvili/ai-summarizer</li>
+<li>git clone <p> https://github.com/ngermanishvili/ai-summarizer</li>
 <li>cd repo </li>
 <li> npm install</li>
 <li>Create a .env file at the root of the project with the following content <br /> VITE_RAPID_API_ARTICLE_KEY=your_rapid_api_key_here</li>
