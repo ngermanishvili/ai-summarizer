@@ -16,7 +16,7 @@ Users can copy the article link to the clipboard.
 Usage
 To use this application, you can either visit the live demo or clone this repository and run the app locally.
 
-<h1> Live Demo</h1>
+<h1> Live Demo https://ai-summarize1337.netlify.app/</h1>
  <h3>You can visit the live demo here.</h3>
 
 <h1> Local Installation</h1>
@@ -33,4 +33,4 @@ This project helped me learn more about building React apps with Redux Toolkit a
 
 <h4>Overall, this project gave me a good understanding of how to use React, Redux Toolkit, and APIs to build scalable web applications</h4>
 
-This project was created by <h4> Nika Germanishvili.</h4> The application uses the Article Extractor and Summarizer API from RapidAPI. Special thanks to the developers who contributed to the development of the libraries and tools used in this project.
+This project was created by Nika Germanishvili. The application uses the Article Extractor and Summarizer API from RapidAPI. Special thanks to the developers who contributed to the development of the libraries and tools used in this project.
