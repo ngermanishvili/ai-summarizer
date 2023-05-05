@@ -2,15 +2,17 @@ import React from "react";
 import "tailwindcss/tailwind.css";
 import { logo } from "../assets";
 
+
 const Hero = () => {
   return (
     <header className="w-full flex justify-center items-center flex-col">
       <nav className="flex justify-between p-10 items-center w-full mb-10 pt-3">
         <img src={logo} alt="sumz_logo" className="w-28 object-contain" />
+
         <button
           type="button"
           onClick={() =>
-            window.open("https://github.com/TidbitsJS/Summize", "_blank")
+            window.open("https://github.com/ngermanishvili", "_blank")
           }
           className="rounded-full border border-black bg-black py-1.5 px-5 text-sm text-white transition-all hover:bg-white hover:text-black !important;
           "
@@ -26,8 +28,11 @@ const Hero = () => {
         </span>
       </h1>
       <h2 className="mt-5 text-lg text-gray-600 sm:text-xl text-center max-w-2xl">
-        Simplify your reading with Summize, an open-source article summarizer
-        that transforms lengthy articles into clear and concise summaries
+        Say goodbye to long and complicated articles! Summize is the ultimate
+        open-source article summarizer that makes reading a breeze. With
+        Summize, you can turn any lengthy article into a clear and concise
+        summary in just a few clicks. Get straight to the point and save time
+        with Summize - the ultimate tool for simplifying your reading.
       </h2>
     </header>
   );
